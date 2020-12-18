@@ -22,8 +22,14 @@ $(function() {
   var typing = false;
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
-
-  var socket = io();
+  
+  var url = 'http://localhost:3000/socket.io'
+  var url = 'http://localhost:3000'
+  var url = window.location
+  var url = window.location.href
+  var manager = new io.Manager(url);
+  var socket = manager.socket(url);
+  // var socket = io();
 
   const addParticipantsMessage = (data) => {
     var message = '';
